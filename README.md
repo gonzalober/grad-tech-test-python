@@ -2,6 +2,7 @@
 
 ## Setup
 install yarn or npm globally 
+
 run `yarn` or `npm install`
 
 ## Challenge
