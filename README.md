@@ -16,7 +16,7 @@ Once done, link us the URL of your solution
 
 ## Tips
 
-The data set in the test ends at parent 4, but imagine any number of parents and childs could be passed to this function.
+The data set in the test ends at parent 4, but imagine any number of parents and children could be passed to this function.
 
 When the test passes clean up your code.
 It's worth spending time formatting and simplifing thins.
