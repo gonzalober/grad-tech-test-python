@@ -2,14 +2,14 @@
 please do not fork it!
 
 ## Setup
-install yarn or npm globally 
+install yarn or npm globally
 
 run `yarn` or `npm install`
 
 ## Challenge
-Write some code to implement the function `createMenuData`
+The function `createMenuData` in [gradTest.test.js](gradTest.test.js) is left without an implementation. In the same file, you'll be able to find input data and expected output, update the function so that the test passes.
 
-Use the test runner `jest` to run the `gradTest.test.js` 
+Update the repository to be able to run the test in the file, it's executed using the `jest` runner with `yarn` or `npm` as per your preference.
 
 Commit your changes and push them up to your own git repositry!
 Once done, link us the URL of your solution
