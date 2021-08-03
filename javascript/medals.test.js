@@ -1,7 +1,7 @@
 function createMedalTable(medals) {
     // Parse the medal data to produce a medaltable
     // The winner gets 3 points, second place 2 points and third place 1 point
-
+    return
 }
 
 describe("Medal Table Generator", () => {
