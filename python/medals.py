@@ -17,6 +17,7 @@ medalResults = [
     }
 ]
 
+
 def createMedalTable(results):
     # Use the results object above to create a medal table
     # The winner gets 3 points, second place 2 points and third place 1 point
@@ -24,7 +25,7 @@ def createMedalTable(results):
 
 
 def test_function():
-    #This it the test function, please don't change me
+    # This it the test function, please don't change me
     medalTable = createMedalTable(medalResults)
     expectedTable = {
         "Italy": 4,
