@@ -21,36 +21,34 @@ medalResults = [
 def createMedalTable(results):
     # Use the results object above to create a medal table
     # The winner gets 3 points, second place 2 points and third place 1 point
-    result_county = {}
-
+    result_country = {}
+    FIRST_POSITION = 1
+    SECOND_POSITION = 2
+    THIRD_POSITION = 3
     for x in results:
         for key, value in x.items():
             if key == "podium":
                 for y in value:
                     country_name = y.split(".")[1]
                     country_position = int(y.split(".")[0])
-                    if country_position == 1:
-                        if country_name in result_county:
-                            result_county[country_name] += 3
+                    if country_position == FIRST_POSITION:
+                        if country_name in result_country:
+                            result_country[country_name] += 3
                         else:
-                            result_county[country_name] = 3
-                    elif country_position == 2:
-                        if country_name in result_county:
-                            result_county[country_name] += 2
+                            result_country[country_name] = 3
+                    elif country_position == SECOND_POSITION:
+                        if country_name in result_country:
+                            result_country[country_name] += 2
                         else:
-                            result_county[country_name] = 2
-                    elif country_position == 3:
-                        if country_name in result_county:
-                            result_county[country_name] += 1
+                            result_country[country_name] = 2
+                    elif country_position == THIRD_POSITION:
+                        if country_name in result_country:
+                            result_country[country_name] += 1
                         else:
-                            result_county[country_name] = 1
+                            result_country[country_name] = 1
                     else:
                         return
-
-    return result_county
-
-
-createMedalTable(medalResults)
+    return result_country
 
 
 def test_function():
