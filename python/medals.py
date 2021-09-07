@@ -1,4 +1,4 @@
-medalResults = [
+medal_results = [
     {
         "sport": "cycling",
         "podium": ["1.China", "2.Germany", "3.ROC"]
@@ -18,43 +18,46 @@ medalResults = [
 ]
 
 
-def createMedalTable(results):
+def create_medal_table(results):
     # Use the results object above to create a medal table
     # The winner gets 3 points, second place 2 points and third place 1 point
     result_country = {}
-    FIRST_POSITION = 1
-    SECOND_POSITION = 2
-    THIRD_POSITION = 3
+    BRONZE_POINT = 1
+    SILVER_POINTS = 2
+    GOLD_POINTS = 3
     for x in results:
         for key, value in x.items():
             if key == "podium":
                 for y in value:
                     country_name = y.split(".")[1]
                     country_position = int(y.split(".")[0])
-                    if country_position == FIRST_POSITION:
+                    if country_position == 1:
                         if country_name in result_country:
-                            result_country[country_name] += 3
+                            result_country[country_name] += GOLD_POINTS
                         else:
-                            result_country[country_name] = 3
-                    elif country_position == SECOND_POSITION:
+                            result_country[country_name] = GOLD_POINTS
+                    elif country_position == 2:
                         if country_name in result_country:
-                            result_country[country_name] += 2
+                            result_country[country_name] += SILVER_POINTS
                         else:
-                            result_country[country_name] = 2
-                    elif country_position == THIRD_POSITION:
+                            result_country[country_name] = SILVER_POINTS
+                    elif country_position == 3:
                         if country_name in result_country:
-                            result_country[country_name] += 1
+                            result_country[country_name] += BRONZE_POINT
                         else:
-                            result_country[country_name] = 1
+                            result_country[country_name] = BRONZE_POINT
                     else:
                         return
     return result_country
 
 
+create_medal_table(medal_results)
+
+
 def test_function():
     # This it the test function, please don't change me
-    medalTable = createMedalTable(medalResults)
-    expectedTable = {
+    medal_table = create_medal_table(medal_results)
+    expected_table = {
         "Italy": 4,
         "France": 4,
         "ROC": 4,
@@ -65,4 +68,4 @@ def test_function():
         "Brazil": 1,
         "Belarus": 1,
     }
-    assert medalTable == expectedTable
+    assert medal_table == expected_table
