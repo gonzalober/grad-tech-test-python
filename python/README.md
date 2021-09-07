@@ -1,8 +1,6 @@
 # Grad Tech Test - Python
 
-# Medals
-
-## Challenge
+## Medals Challenge
 
 In the file [medals.py](medals.py), there's a function for creating a medal table. Update this function to be able to process the sample input.
 
