@@ -21,6 +21,8 @@ medal_results = [
 def create_medal_table(results):
     # Use the results object above to create a medal table
     # The winner gets 3 points, second place 2 points and third place 1 point
+    if not isinstance(results, list):
+        return "the input must be a list of dictionaries"
     result_country = {}
     BRONZE_POINT = 1
     SILVER_POINTS = 2
@@ -47,7 +49,7 @@ def create_medal_table(results):
                         else:
                             result_country[country_name] = BRONZE_POINT
                     else:
-                        return
+                        return "podium must be maximum 3 countries"
     return result_country
 
 
