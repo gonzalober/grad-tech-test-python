@@ -18,41 +18,53 @@ medal_results = [
 ]
 
 
-def checks_keys_are_in_dictionary(key, object, points):
-    if key in object:
-        object[key] += points
+def asign_points_to_country(country, medal_result, points):
+    if country in medal_result:
+        medal_result[country] += points
     else:
-        object[key] = points
-    return
+        medal_result[country] = points
 
 
-def create_medal_table(results):
-    # Use the results object above to create a medal table
-    # The winner gets 3 points, second place 2 points and third place 1 point
-    if not isinstance(results, list):
-        return "the input must be a list of dictionaries"
-    result_country = {}
+def convert_string_podium_to_position(podium):
+    return int(podium.split(".")[0])
+
+
+def convert_string_podium_to_country(podium):
+    return podium.split(".")[1]
+
+
+def get_points_by_position(position):
     BRONZE_POINT = 1
     SILVER_POINTS = 2
     GOLD_POINTS = 3
-    for x in results:
-        for key, value in x.items():
-            if key == "podium":
-                for y in value:
-                    country_name = y.split(".")[1]
-                    country_position = int(y.split(".")[0])
-                    if country_position == 1:
-                        checks_keys_are_in_dictionary(
-                            country_name, result_country, GOLD_POINTS)
-                    elif country_position == 2:
-                        checks_keys_are_in_dictionary(
-                            country_name, result_country, SILVER_POINTS)
-                    elif country_position == 3:
-                        checks_keys_are_in_dictionary(
-                            country_name, result_country, BRONZE_POINT)
-                    else:
-                        return "podium must be maximum 3 countries"
-    return result_country
+    if position == 1:
+        return GOLD_POINTS
+    elif position == 2:
+        return SILVER_POINTS
+    elif position == 3:
+        return BRONZE_POINT
+    else:
+        return None
+
+
+def create_medal_table(medal_results):
+    medals_table_result = {}
+
+    if not isinstance(medal_results, list):
+        return "the input must be a list"
+
+    for sport_podium in medal_results:
+        podium = sport_podium["podium"]
+        for podium_element in podium:
+            position = convert_string_podium_to_position(podium_element)
+            country = convert_string_podium_to_country(podium_element)
+            points = get_points_by_position(position)
+            if points == None:
+                return "the position does not exist"
+            asign_points_to_country(
+                country, medals_table_result, points)
+
+    return medals_table_result
 
 
 def test_function():

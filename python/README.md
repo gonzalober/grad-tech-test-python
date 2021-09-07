@@ -28,7 +28,13 @@ git push -u origin <branch-name>
 
 ```
 - Understand and identify input/output of `create_medal_table` function.
-- Design the code with input single object array, in which the array value has only one string element "1.country".
+- Implementation:
+    - Iterate over the array.
+    - Get the podium "key".
+    - For each of the elements that are in the podium split them between position and country.
+    - Asign points depending on the position of the country.
 - Design the tests which checks create_medal_table() returns a {"country": points} object.
-- Refactoring code.
+- Refactoring the code.
 ```
+
+Note: I would also like to add that I changed some variables and functions naming to snake_case due to python conventions ([HERE](https://www.python.org/dev/peps/pep-0008/#function-and-variable-names)).

@@ -58,7 +58,7 @@ def test_create_medal_table_error_for_more_than_three_countries(mock_four_countr
     then returns an error that the maximum is three countries in the podium
     """""
     res = create_medal_table(mock_four_country_data)
-    assert res == "podium must be maximum 3 countries"
+    assert res == "the position does not exist"
 
 
 def test_create_medal_table_error_if_input_is_not_list():
@@ -67,4 +67,4 @@ def test_create_medal_table_error_if_input_is_not_list():
     """""
     mock_type_error_input_country_data = "I am not a list type"
     res = create_medal_table(mock_type_error_input_country_data)
-    assert res == "the input must be a list of dictionaries"
+    assert res == "the input must be a list"
