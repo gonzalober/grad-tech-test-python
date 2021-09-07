@@ -18,6 +18,14 @@ medal_results = [
 ]
 
 
+def checks_keys_are_in_dictionary(key, object, points):
+    if key in object:
+        object[key] += points
+    else:
+        object[key] = points
+    return
+
+
 def create_medal_table(results):
     # Use the results object above to create a medal table
     # The winner gets 3 points, second place 2 points and third place 1 point
@@ -34,26 +42,17 @@ def create_medal_table(results):
                     country_name = y.split(".")[1]
                     country_position = int(y.split(".")[0])
                     if country_position == 1:
-                        if country_name in result_country:
-                            result_country[country_name] += GOLD_POINTS
-                        else:
-                            result_country[country_name] = GOLD_POINTS
+                        checks_keys_are_in_dictionary(
+                            country_name, result_country, GOLD_POINTS)
                     elif country_position == 2:
-                        if country_name in result_country:
-                            result_country[country_name] += SILVER_POINTS
-                        else:
-                            result_country[country_name] = SILVER_POINTS
+                        checks_keys_are_in_dictionary(
+                            country_name, result_country, SILVER_POINTS)
                     elif country_position == 3:
-                        if country_name in result_country:
-                            result_country[country_name] += BRONZE_POINT
-                        else:
-                            result_country[country_name] = BRONZE_POINT
+                        checks_keys_are_in_dictionary(
+                            country_name, result_country, BRONZE_POINT)
                     else:
                         return "podium must be maximum 3 countries"
     return result_country
-
-
-create_medal_table(medal_results)
 
 
 def test_function():
